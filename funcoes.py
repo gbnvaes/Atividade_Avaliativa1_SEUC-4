@@ -1,6 +1,6 @@
 import random
 
-random.seed(10)
+random.seed(9)
 
 def pressao():
     upc = random.randint(1, 250)
@@ -24,5 +24,3 @@ def verificar_travamento(zona_atual, zona_anterior):
         return True
     return False
 
-def exibir_metricas(soma_pressao, menor_pressao, cont_verde, total_realizado, total_planejado, travou):
-    pass
