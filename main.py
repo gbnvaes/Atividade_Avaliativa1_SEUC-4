@@ -1,4 +1,5 @@
 from funcoes import *
+import os
 zona_atual = None
 total_leituras = int(input("Digite o número total de leituras do turno: "))
 total_pressao = 0
@@ -6,10 +7,16 @@ menor_pressao = None
 cont_verde = 0 
 travamento = False
 i = 0
-
+opcao = 0
+while opcao !=1 and opcao!=2:
+    os.system('cls')
+    opcao = int(input("Digite [1] para Digitar a pressão e [2] para gerar pressões random:"))
 
 for i in range(1,total_leituras + 1):
-    upc = pressao()
+    if opcao == 1:
+        upc = int(input("Pressão: "))
+    else:
+        upc = pressao()
     total_pressao += upc
 
     if menor_pressao == None or menor_pressao < upc:
