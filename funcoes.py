@@ -4,10 +4,6 @@ random.seed(9)
 
 def pressao():
     upc = random.randint(1, 250)
-    if upc > 150:
-        upc *= 1.08
-    else:
-        upc *= 0.96
     return upc
 
 def classificar_zona(ajuste_pressao):
