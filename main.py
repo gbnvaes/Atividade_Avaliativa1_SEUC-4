@@ -4,13 +4,16 @@ zona_atual = None
 total_leituras = int(input("Digite o número total de leituras do turno: "))
 total_pressao = 0
 menor_pressao = None
+maior_pressao = None
 cont_verde = 0 
 travamento = False
 i = 0
 opcao = 0
+
+
 while opcao !=1 and opcao!=2:
     os.system('cls')
-    opcao = int(input("Digite [1] para Digitar a pressão e [2] para gerar pressões random:"))
+    opcao = int(input("Digite [1] para Digitar a pressão e [2] para gerar pressões random: "))
 
 for i in range(1,total_leituras + 1):
     if opcao == 1:
@@ -19,8 +22,10 @@ for i in range(1,total_leituras + 1):
         upc = pressao()
     total_pressao += upc
 
-    if menor_pressao == None or menor_pressao < upc:
+    if menor_pressao == None or upc < menor_pressao:
         menor_pressao = upc
+    if maior_pressao == None or upc > maior_pressao:
+        maior_pressao = upc
 
     zona_anterior = zona_atual
     zona_atual = classificar_zona(upc)
@@ -34,7 +39,7 @@ for i in range(1,total_leituras + 1):
         print("O sistema atingiu o limite de zona vermelha\n")
         break
 
-metricas_finais(total_pressao, menor_pressao, cont_verde, i, total_leituras, travamento)
+metricas_finais(total_pressao, menor_pressao, maior_pressao, cont_verde, i, total_leituras, travamento)
 
 
 
