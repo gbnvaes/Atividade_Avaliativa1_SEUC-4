@@ -42,7 +42,7 @@ for i in range(1,total_leituras + 1):
     zona_anterior = zona_atual
     zona_atual = classificar_zona(upc)
 
-    print(f"  → Pressão ajustada: {upc:.2f} UPCs | Zona: {zona_atual}")
+    print(f" Pressão ajustada: {upc:.2f} UPCs | Zona: {zona_atual}")
 
     if zona_atual == "Verde (Estável)":
         cont_verde += 1
@@ -52,7 +52,7 @@ for i in range(1,total_leituras + 1):
         travamento = True 
         print("O sistema atingiu o limite de zona vermelha\n")
         break
-print()
+
 metricas_finais(total_pressao, menor_pressao, maior_pressao, cont_verde, i, total_leituras, travamento)
 
 
