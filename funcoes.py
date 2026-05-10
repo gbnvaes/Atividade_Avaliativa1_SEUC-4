@@ -1,11 +1,3 @@
-import random
-
-random.seed(9)
-
-def pressao():
-    upc = random.randint(1, 250)
-    return upc
-
 def classificar_zona(ajuste_pressao):
     if 120 <= ajuste_pressao <= 180:
         zona = "Verde (Estável)"
@@ -27,7 +19,7 @@ def metricas_finais(total_pressao, menor_pressao, maior_pressao, cont_verde, i, 
     media = total_pressao / i
     porc_verde = (cont_verde * 100) / i
 
-    print(f"Média das pressões ajustadas: {media: .2f} UPCs")
+    print(f"\n\nMédia das pressões ajustadas: {media: .2f} UPCs")
     print(f"Menor pressão registrada: {menor_pressao: .2f} UPCs")
     print(f"Maior pressão registrada: {maior_pressao: .2f} UPCs")
     print(f"Porcentagem na Zona Verde: {porc_verde: .2f}%")

@@ -1,5 +1,4 @@
 from funcoes import *
-import os
 zona_atual = None 
 total_pressao = 0
 menor_pressao = None
@@ -15,19 +14,13 @@ while total_leituras <= 0:
     if total_leituras <= 0:
         print("O número de leituras deve ser maior que zero. Tente Novamente. ")
 
-while opcao !=1 and opcao!=2:
-    os.system('cls')
-    opcao = int(input("Digite [1] para Digitar a pressão e [2] para gerar pressões random: "))
-
 for i in range(1,total_leituras + 1):
-    if opcao == 1:
-        upc = 0
-        while upc <= 0:
-            upc = int(input(f"Leitura {i}/{total_leituras} - Pressão (UPC): "))
-            if upc <= 0:
-                print("Pressão inválida. Digite um valor maior que zero.")
-    else:
-        upc = pressao()
+    upc = 0
+    while upc <= 0:
+        upc = int(input(f"Leitura {i}/{total_leituras} - Pressão (UPC): "))
+        if upc <= 0:
+            print("Pressão inválida. Digite um valor maior que zero.")
+
     if upc > 150:
         upc *= 1.08
     else:
@@ -54,7 +47,3 @@ for i in range(1,total_leituras + 1):
         break
 
 metricas_finais(total_pressao, menor_pressao, maior_pressao, cont_verde, i, total_leituras, travamento)
-
-
-
-
